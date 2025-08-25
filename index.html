@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emmett Naturals - Premium Organic Products from Farm to Table</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      header {
+        background: linear-gradient(135deg, #2d5a27 0%, #4a7c59 100%);
+        color: white;
+        padding: 1rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #90ee90;
+        display: flex;
+        gap: 16px;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #90ee90;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+            rgba(45, 90, 39, 0.8),
+            rgba(74, 124, 89, 0.8)
+          ),
+          url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%234a7c59" width="1200" height="600"/><circle fill="%2390ee90" cx="200" cy="100" r="20" opacity="0.3"/><circle fill="%2390ee90" cx="800" cy="150" r="30" opacity="0.2"/><circle fill="%2390ee90" cx="400" cy="400" r="25" opacity="0.3"/><circle fill="%2390ee90" cx="1000" cy="350" r="35" opacity="0.2"/></svg>');
+        color: white;
+        padding: 5rem 0;
+        text-align: center;
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-content h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        animation: fadeInUp 1s ease;
+      }
+
+      .hero-content p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        animation: fadeInUp 1s ease 0.2s both;
+      }
+
+      .cta-button {
+        background: linear-gradient(45deg, #90ee90, #32cd32);
+        color: #2d5a27;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        animation: fadeInUp 1s ease 0.4s both;
+        display: inline-block;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      /* About Section */
+      .about {
+        padding: 5rem 0;
+        background: white;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .about-text h2 {
+        color: #2d5a27;
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .about-text p {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        color: #555;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        border-radius: 15px;
+        transition: transform 0.3s ease;
+      }
+
+      .stat-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #2d5a27;
+      }
+
+      .stat-label {
+        color: #666;
+        font-weight: 500;
+      }
+
+      /* Products Section */
+      .products {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #2d5a27;
+        margin-bottom: 3rem;
+      }
+
+      .product-categories {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        margin-top: 3rem;
+      }
+
+      .category-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .category-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .category-card h3 {
+        color: #2d5a27;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .moringa-products {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .moringa-item {
+        background: linear-gradient(135deg, #90ee90, #32cd32);
+        color: white;
+        padding: 1rem;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+
+      .moringa-item:hover {
+        transform: scale(1.05);
+      }
+
+      .other-products {
+        list-style: none;
+      }
+
+      .other-products li {
+        padding: 0.8rem;
+        margin: 0.5rem 0;
+        background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+        border-radius: 8px;
+        border-left: 4px solid #2d5a27;
+        transition: all 0.3s ease;
+      }
+
+      .other-products li:hover {
+        background: linear-gradient(45deg, #e9ecef, #dee2e6);
+        transform: translateX(10px);
+      }
+
+      /* Quality Promise Section */
+      .quality-promise {
+        padding: 5rem 0;
+        background: white;
+      }
+
+      .promise-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .promise-item {
+        text-align: center;
+        padding: 2rem 1rem;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        border-radius: 15px;
+        transition: all 0.3s ease;
+      }
+
+      .promise-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .promise-icon {
+        font-size: 2.5rem;
+        color: #32cd32;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      .promise-item h4 {
+        color: #2d5a27;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+      }
+
+      .promise-item p {
+        color: #666;
+        font-size: 0.95rem;
+      }
+      .exports {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%);
+      }
+
+      .exports-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+        margin-top: 3rem;
+      }
+
+      .exports-text h3 {
+        color: #2d5a27;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .exports-text p {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 2rem;
+      }
+
+      .export-features {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.5rem;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .feature-item:hover {
+        transform: translateX(10px);
+      }
+
+      .feature-icon {
+        font-size: 2rem;
+        min-width: 50px;
+      }
+
+      .feature-content h4 {
+        color: #2d5a27;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .feature-content p {
+        color: #666;
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .export-stats {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .export-stats h3 {
+        color: #2d5a27;
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .global-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .global-stat {
+        text-align: center;
+        padding: 1rem;
+        background: linear-gradient(135deg, #90ee90, #32cd32);
+        color: white;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+      }
+
+      .global-stat:hover {
+        transform: scale(1.05);
+      }
+
+      .global-stat .stat-number {
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+
+      .global-stat .stat-label {
+        font-size: 0.9rem;
+        opacity: 0.9;
+      }
+
+      .regions-served h4 {
+        color: #2d5a27;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .regions-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+      }
+
+      .region {
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        padding: 0.8rem;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .region:hover {
+        background: linear-gradient(135deg, #e9ecef, #dee2e6);
+        transform: translateY(-2px);
+      }
+      .trust {
+        padding: 5rem 0;
+        background: white;
+      }
+
+      .trust-content {
+        text-align: center;
+      }
+
+      .trust-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .trust-item {
+        padding: 2rem;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        border-radius: 15px;
+        transition: all 0.3s ease;
+      }
+
+      .trust-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .trust-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .trust-item h4 {
+        color: #2d5a27;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Footer */
+      footer {
+        background: linear-gradient(135deg, #2d5a27 0%, #1a3a1a 100%);
+        color: white;
+        padding: 3rem 0 1rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-section h4 {
+        color: #90ee90;
+        margin-bottom: 1rem;
+      }
+
+      .footer-section p,
+      .footer-section li {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-section ul {
+        list-style: none;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid #4a7c59;
+        color: #90ee90;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 2.5rem;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+
+        .product-categories {
+          grid-template-columns: 1fr;
+        }
+
+        .moringa-products {
+          grid-template-columns: 1fr;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .reviews-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .trust-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .promise-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .exports-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .global-stats {
+          grid-template-columns: 1fr;
+        }
+
+        .regions-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-links {
+          gap: 1rem;
+        }
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      .modal-content {
+        display: block;
+        margin: 5% auto;
+        max-width: 600px;
+        width: 90%;
+        border-radius: 10px;
+      }
+
+      .close {
+        position: absolute;
+        top: 20px;
+        right: 35px;
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .other-products {
+        list-style: none;
+        padding: 0;
+        max-width: 700px;
+        margin: auto;
+      }
+
+      .accordion {
+        cursor: pointer;
+        padding: 12px 16px;
+        margin: 6px 0;
+        background: #f4f4f4;
+        border-radius: 6px;
+        font-weight: bold;
+        position: relative;
+      }
+
+      .accordion::after {
+        content: "+";
+        position: absolute;
+        right: 15px;
+        top: 20px;
+
+        font-weight: bold;
+      }
+
+      .accordion.active::after {
+        content: "-";
+      }
+
+      .panel {
+        max-height: 0;
+        overflow: hidden;
+        background: #fff;
+        padding: 0 16px;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        border-left: 3px solid #4caf50;
+        margin-top: 6px;
+      }
+
+      .accordion.active .panel {
+        max-height: 500px; /* adjust if content is longer */
+        padding: 10px 16px;
+      }
+      .logo-img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        display: inline;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav class="container">
+        <div class="logo">
+          <img
+            src="assets/logo.png"
+            alt="Emmett Naturals Logo"
+            class="logo-img"
+          />
+
+          <div >
+            <div>Emmett Naturals</div>
+            <div
+              style="
+                font-size: 0.6rem;
+                color: #90ee90;
+                font-weight: normal;
+                letter-spacing: 2px;
+              "
+            >
+              PURE • ORGANIC • WORLDWIDE
+            </div>
+          </div>
+        </div>
+        <div class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#exports">Global Reach</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Pure • Organic • Worldwide</h1>
+          <p>
+            At Emmett Naturals, we believe that true wellness begins with nature
+            — and is powered by people. Experience our premium organic,
+            plant-based products sourced from the finest farms and delivered
+            worldwide with excellence.
+          </p>
+          <a href="#products" class="cta-button">Explore Our Products</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text">
+            <h2>Wellness with Purpose</h2>
+
+            <p>
+              Emmett Naturals is a premium organic products company specializing
+              in nature's finest offerings. With a strong presence across India
+              and international markets, we have established ourselves as a
+              trusted source for certified organic products that deliver quality
+              and purity.
+            </p>
+
+            <p>
+              Our product portfolio centers around Moringa—nature's
+              superfood—complemented by carefully curated Superfood Powders,
+              Herbal Supplements, Cold-Pressed Oils, Ayurvedic Herbs, and
+              Culinary Spices. Every product is sourced from certified organic
+              farms and meets our strict quality standards.
+            </p>
+
+            <p>
+              Through strategic partnerships with farmers and suppliers
+              globally, we ensure sustainable practices while delivering
+              excellence to our customers. Emmett Naturals represents more than
+              premium products—we represent trust, quality, and commitment to
+              natural health solutions.
+            </p>
+          </div>
+
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Trusted Farmers</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Organic Certified</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">25+</div>
+              <div class="stat-label">Countries Served</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+      <div class="container">
+        <h2 class="section-title">Our Premium Product Range</h2>
+
+        <div class="product-categories">
+          <!-- Moringa Superfoods -->
+          <div class="category-card">
+            <h3>🌿 Moringa Superfoods - Our Flagship</h3>
+            <p style="text-align: center; margin-bottom: 1.5rem; color: #666">
+              Pure Moringa powder - The pinnacle of superfood excellence
+            </p>
+
+            <div class="moringa-products">
+              <div class="moringa-item" data-img="assets/moringa-powder.jpg">
+                Pure Moringa Powder
+              </div>
+              <div class="moringa-item" data-img="assets/moringa-oil.jpg">
+                Moringa Oil
+              </div>
+              <div class="moringa-item" data-img="assets/moringa-tablets.jpg">
+                Moringa Tablets
+              </div>
+              <div class="moringa-item" data-img="assets/moringa-seeds.jpg">
+                Moringa Seeds
+              </div>
+            </div>
+
+            <p style="margin-top: 1.5rem; color: #666; text-align: center">
+              Nutrient-dense treasure delivering exceptional concentration of
+              vitamins, antioxidants, and skin-loving nutrients.
+            </p>
+          </div>
+
+          <!-- Other Organic Products -->
+          <div class="category-card">
+            <h3>🌱 Premium Organic Collection</h3>
+            <p style="text-align: center; margin-bottom: 1.5rem; color: #666">
+              Carefully sourced organic products for complete wellness
+            </p>
+
+            <ul class="other-products">
+              <li class="accordion">
+                🥄 Superfood Powders
+                <div class="panel">
+                  <ul>
+                    <li>Amla Powder (<em>Phyllanthus emblica</em>)</li>
+                    <li>Ashwagandha Powder (<em>Withania somnifera</em>)</li>
+                    <li>Banana Powder (<em>Musa paradisiaca</em>)</li>
+                    <li>Wheatgrass Powder (<em>Triticum aestivum</em>)</li>
+                    <li>Spirulina Powder (<em>Arthrospira platensis</em>)</li>
+                    <li>Flax Seeds Powder (<em>Linum usitatissimum</em>)</li>
+                  </ul>
+                  <p>... and more.</p>
+                </div>
+              </li>
+
+              <li class="accordion">
+                💊 Herbal Supplements
+                <div class="panel">
+                  <ul>
+                    <li>
+                      Amla Capsules / Tablets (<em>Phyllanthus emblica</em>)
+                    </li>
+                    <li>
+                      Ashwagandha Capsules / Tablets (<em>Withania somnifera</em
+                      >)
+                    </li>
+                    <li>
+                      Moringa Capsules / Tablets (<em>Moringa oleifera</em>)
+                    </li>
+                    <li>
+                      Triphala Capsules / Tablets (Blend:
+                      <em
+                        >Phyllanthus emblica, Terminalia bellirica, Terminalia
+                        chebula</em
+                      >)
+                    </li>
+                  </ul>
+                  <p>... and more.</p>
+                </div>
+              </li>
+
+              <li class="accordion">
+                🫒 Cold-Pressed Oils
+                <div class="panel">
+                  <ul>
+                    <li>Coconut Oil, Virgin (<em>Cocos nucifera</em>)</li>
+                    <li>Groundnut Oil (<em>Arachis hypogaea</em>)</li>
+                    <li>Moringa Oil (<em>Moringa oleifera</em>)</li>
+                    <li>Mustard Oil (<em>Brassica juncea</em>)</li>
+                    <li>Sesame Oil (<em>Sesamum indicum</em>)</li>
+                  </ul>
+                  <p>... and more.</p>
+                </div>
+              </li>
+
+              <li class="accordion">
+                🌿 Ayurvedic Herbs
+                <div class="panel">
+                  <ul>
+                    <li>Aritha Powder (<em>Sapindus mukorossi</em>)</li>
+                    <li>Brahmi Powder (<em>Bacopa monnieri</em>)</li>
+                    <li>
+                      Coriander Leaves Powder (<em>Coriandrum sativum</em>)
+                    </li>
+                    <li>Curry Leaves Powder (<em>Murraya koenigii</em>)</li>
+                    <li>
+                      Fenugreek Leaves Powder (<em>Trigonella foenum-graecum</em
+                      >)
+                    </li>
+                    <li>Neem Leaves Powder (<em>Azadirachta indica</em>)</li>
+                    <li>Tulsi Powder (<em>Ocimum sanctum</em>)</li>
+                  </ul>
+                  <p>... and more.</p>
+                </div>
+              </li>
+
+              <li class="accordion">
+                🌶️ Culinary Herbs & Spices
+                <div class="panel">
+                  <ul>
+                    <li>Cinnamon Powder (<em>Cinnamomum verum</em>)</li>
+                    <li>Coriander Powder (<em>Coriandrum sativum</em>)</li>
+                    <li>
+                      Fenugreek Powder (<em>Trigonella foenum-graecum</em>)
+                    </li>
+                    <li>Garlic Powder (<em>Allium sativum</em>)</li>
+                    <li>Lemon Powder (<em>Citrus limon</em>)</li>
+                    <li>Onion Powder (<em>Allium cepa</em>)</li>
+                    <li>Turmeric Powder (<em>Curcuma longa</em>)</li>
+                  </ul>
+                  <p>... and more.</p>
+                </div>
+              </li>
+            </ul>
+
+            <p style="margin-top: 1.5rem; color: #666; text-align: center">
+              A complete range of organic products providing
+              scientifically-backed solutions for your health and vitality.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Modal -->
+    <div id="productModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modalImage" />
+      <div id="caption"></div>
+    </div>
+
+    <!-- Quality Promise Section -->
+    <section class="quality-promise">
+      <div class="container">
+        <h2 class="section-title">Emmett Naturals Quality Promise</h2>
+
+        <div class="promise-grid">
+          <div class="promise-item">
+            <div class="promise-icon">✓</div>
+            <h4>100% Organic & Pure</h4>
+            <p>
+              USDA & India Organic certified farms with complete traceability
+            </p>
+          </div>
+
+          <div class="promise-item">
+            <div class="promise-icon">✓</div>
+            <h4>No Artificial Additives</h4>
+            <p>
+              Pure, natural products with no synthetic chemicals or
+              preservatives
+            </p>
+          </div>
+
+          <div class="promise-item">
+            <div class="promise-icon">✓</div>
+            <h4>Lab Tested for Quality</h4>
+            <p>Third-party verified for purity, potency and safety standards</p>
+          </div>
+
+          <div class="promise-item">
+            <div class="promise-icon">✓</div>
+            <h4>Sustainably Sourced</h4>
+            <p>
+              Eco-friendly practices supporting farming communities worldwide
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="exports" id="exports">
+      <div class="container">
+        <h2 class="section-title">Global Organic Excellence</h2>
+
+        <div class="exports-content">
+          <div class="exports-text">
+            <h3>Trusted Worldwide Partner</h3>
+            <p>
+              Emmett Naturals has established itself as a leading exporter of
+              premium organic products, delivering nature's finest to customers
+              across 25+ countries. Our international reach is built on
+              unwavering quality standards and reliable supply chains.
+            </p>
+
+            <div class="export-features">
+              <div class="feature-item">
+                <div class="feature-icon">🌍</div>
+                <div class="feature-content">
+                  <h4>Global Distribution</h4>
+                  <p>
+                    Serving customers across North America, Europe,
+                    Asia-Pacific, and emerging markets with consistent quality
+                    and timely delivery.
+                  </p>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon">📋</div>
+                <div class="feature-content">
+                  <h4>International Certifications</h4>
+                  <p>
+                    All our products meet international organic standards
+                    including USDA Organic, EU Organic, and other regional
+                    certifications.
+                  </p>
+                </div>
+              </div>
+
+              <div class="feature-item">
+                <div class="feature-icon">🚢</div>
+                <div class="feature-content">
+                  <h4>Export Excellence</h4>
+                  <p>
+                    Specialized packaging and logistics ensure products maintain
+                    their potency and freshness during international transit.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="export-stats">
+            <h3>Our Global Impact</h3>
+            <div class="global-stats">
+              <div class="global-stat">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Countries Worldwide</div>
+              </div>
+              <div class="global-stat">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">International Clients</div>
+              </div>
+              <div class="global-stat">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Export Shipments Monthly</div>
+              </div>
+            </div>
+
+            <!-- <div class="regions-served">
+                        <h4>Key Export Markets</h4>
+                        <div class="regions-grid">
+                            <div class="region">🇺🇸 North America</div>
+                            <div class="region">🇪🇺 Europe</div>
+                            <div class="region">🌏 Asia-Pacific</div>
+                            <div class="region">🌍 Middle East & Africa</div>
+                        </div>
+                    </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="trust">
+      <div class="container">
+        <div class="trust-content">
+          <h2 class="section-title">Why Choose Emmett Naturals?</h2>
+
+          <div class="trust-grid">
+            <div class="trust-item">
+              <div class="trust-icon">🚜</div>
+              <h4>Direct Farm Partnerships</h4>
+              <p>
+                We maintain direct relationships with over 500 certified organic
+                farmers, ensuring traceability and quality from soil to shelf.
+              </p>
+            </div>
+
+            <div class="trust-item">
+              <div class="trust-icon">✅</div>
+              <h4>Premium Quality Assurance</h4>
+              <p>
+                Every batch undergoes rigorous testing and quality checks to
+                ensure you receive only the finest organic products.
+              </p>
+            </div>
+
+            <div class="trust-item">
+              <div class="trust-icon">🌍</div>
+              <h4>Sustainable Practices</h4>
+              <p>
+                Supporting eco-friendly farming methods and fair trade practices
+                that benefit both farmers and the environment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>Emmett Naturals</h4>
+            <p>
+              Your trusted partner for premium organic products. From our farmer
+              network to your doorstep.
+            </p>
+            <p>
+              <strong
+                >Connecting you with nature's finest since day one.</strong
+              >
+            </p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Contact Us</h4>
+            <p>
+              <strong>Address:</strong><br />HelloWords Falcon, MR-9<br />Indore
+              - 452011, India
+            </p>
+            <p><strong>Phone/WhatsApp:</strong><br />+91 7770848440</p>
+            <p><strong>Email:</strong><br />info@emmettnaturals.com</p>
+          </div>
+
+          <div class="footer-section">
+            <h4>Our Mission & Vision</h4>
+
+            <p>
+              <strong>Mission:</strong> We connect health-conscious consumers
+              with nature's best organic products, ensuring quality from farm to
+              shelf while empowering agricultural communities.
+            </p>
+            <p>
+              <strong>Vision:</strong> To lead the organic products market by
+              making natural health solutions accessible to everyone,
+              everywhere.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 Emmett Naturals. All rights reserved. | Pure • Organic •
+            Worldwide | Excellence Since 2015
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Add scroll animation to elements
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements for animation
+      document
+        .querySelectorAll(".stat-item, .category-card, .trust-item")
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          el.style.transition = "all 0.6s ease";
+          observer.observe(el);
+        });
+      // Get modal elements
+      const modal = document.getElementById("productModal");
+      const modalImg = document.getElementById("modalImage");
+      const caption = document.getElementById("caption");
+      const closeBtn = document.querySelector(".close");
+
+      // Open modal on click
+      document.querySelectorAll(".moringa-item").forEach((item) => {
+        item.addEventListener("click", () => {
+          const imgSrc = item.getAttribute("data-img");
+          modal.style.display = "block";
+          modalImg.src = imgSrc;
+          caption.innerText = item.innerText;
+        });
+      });
+
+      document.querySelectorAll(".accordion").forEach((item) => {
+        item.addEventListener("click", () => {
+          // close others for strict accordion
+          document.querySelectorAll(".accordion").forEach((el) => {
+            if (el !== item) el.classList.remove("active");
+          });
+          item.classList.toggle("active");
+        });
+      });
+      // Close modal
+      closeBtn.onclick = () => (modal.style.display = "none");
+      modal.onclick = (e) => {
+        if (e.target === modal) modal.style.display = "none";
+      };
+    </script>
+  </body>
+</html>
