@@ -39,6 +39,11 @@
         top: 0px;
         z-index: 999;
       }
+      a {
+  all: unset;
+  cursor: pointer; /* keep pointer cursor */
+}
+
 
       nav {
         display: flex;
@@ -110,6 +115,7 @@
         transition: all 0.3s ease;
         animation: fadeInUp 1s ease 0.4s both;
         display: inline-block;
+        cursor: pointer;
       }
 
       .cta-button:hover {
@@ -1251,7 +1257,7 @@
 
     <div class="contact-grid">
       <!-- Contact Form -->
-   <form class="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeBwljQQdx-wMK38omi_7rneqWUvxhXukJQ5iKmV6Szv8Iz8Q/formResponse" method="POST" target="_blank">
+<form id="contact-form" class="contact-form">
   <div class="form-group">
     <input type="text" name="entry.1922090859" placeholder="Your Name" required />
   </div>
@@ -1265,7 +1271,13 @@
     <textarea name="entry.1579996035" placeholder="Your Message" rows="6" required></textarea>
   </div>
   <button type="submit" class="cta-button">Send Message</button>
+  <p id="confirmation" style="display:none; color:green; margin-top:10px;">
+  ✅ Thank you! Your message has been sent.
+</p>
 </form>
+
+<!-- Hidden confirmation message -->
+
 
 
       <!-- Contact Info -->
@@ -1506,7 +1518,23 @@ closeBtn.onclick = () => (modal.style.display = "none");
 window.onclick = e => {
   if (e.target === modal) modal.style.display = "none";
 };
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault(); // stop normal redirect
 
+  const form = e.target;
+  const data = new FormData(form);
+
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLSeBwljQQdx-wMK38omi_7rneqWUvxhXukJQ5iKmV6Szv8Iz8Q/formResponse", {
+    method: "POST",
+    body: data,
+    mode: "no-cors" // prevent CORS errors
+  }).then(() => {
+    form.reset(); // clear form
+    document.getElementById("confirmation").style.display = "block"; // show message
+  }).catch(() => {
+    alert("Something went wrong. Please try again.");
+  });
+});
 
     </script>
   </body>
