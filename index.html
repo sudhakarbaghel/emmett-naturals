@@ -35,6 +35,9 @@
         color: white;
         padding: 1rem 0;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0px;
+        z-index: 999;
       }
 
       nav {
@@ -565,35 +568,200 @@
           gap: 1rem;
         }
       }
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 9999;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.8);
-      }
+ /* Modal overlay (background) */
+ /* === Base Modal (Desktop) === */
+.modal {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
 
-      .modal-content {
-        display: block;
-        margin: 5% auto;
-        max-width: 600px;
-        width: 90%;
-        border-radius: 10px;
-      }
+/* Modal box */
+.modal-content-wrapper {
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 70%;
+  max-width: 900px;
+  max-height: 80%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
 
-      .close {
-        position: absolute;
-        top: 20px;
-        right: 35px;
-        color: white;
-        font-size: 40px;
-        font-weight: bold;
-        cursor: pointer;
-      }
+/* Text area */
+.modal-text {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.modal-text h2 {
+  margin-top: 0;
+}
+
+/* Image area */
+.modal-image {
+  flex: 1;
+  max-width: 50%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  align-self: center;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: #333;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1100;
+}
+#modalBenefits{
+  margin-left: 16px;
+}
+
+.close:hover {
+  color: red;
+}
+/* Contact Section */
+.contact {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%);
+}
+
+.contact-intro {
+  text-align: center;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  font-size: 1.1rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #32cd32;
+  outline: none;
+}
+
+.contact-info {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.contact-info h3 {
+  color: #2d5a27;
+  margin-bottom: 0.5rem;
+}
+
+.contact-info p {
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === Responsive === */
+
+/* Tablet (up to 1024px) */
+@media (max-width: 1024px) {
+  .modal-content-wrapper {
+    width: 85%;
+    flex-direction: column;
+    max-height: 90%;
+  }
+
+  .modal-image {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+  .modal-text {
+    padding: 15px;
+  }
+}
+
+/* Mobile (up to 600px) */
+@media (max-width: 600px) {
+  .modal-content-wrapper {
+    width: 95%;
+    flex-direction: column;
+    max-height: 95%;
+    border-radius: 6px;
+  }
+
+  .modal-text {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .modal-text h2 {
+    font-size: 18px;
+  }
+
+  .modal-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .close {
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+  }
+}
+
+
+
       .other-products {
         list-style: none;
         padding: 0;
@@ -643,6 +811,7 @@
         height: 60px;
         object-fit: contain;
         display: inline;
+          /* mix-blend-mode: multiply; */
       }
     </style>
  
@@ -896,11 +1065,23 @@
     </section>
 
     <!-- ✅ Modal -->
-    <div id="productModal" class="modal">
-      <span class="close">&times;</span>
-      <img class="modal-content" id="modalImage" />
-      <div id="caption"></div>
+<div id="productModal" class="modal">
+  <span class="close">&times;</span>
+  <div class="modal-content-wrapper">
+    <div class="modal-text">
+      <h2 id="modalTitle"></h2>
+      <p><strong>Scientific Name:</strong> <span id="modalScientific"></span></p>
+      <p id="modalDesc"></p>
+      <h4>Benefits:</h4>
+      <ul id="modalBenefits"></ul>
     </div>
+    <img class="modal-image" id="modalImage" />
+  </div>
+</div>
+
+
+
+
 
     <!-- Quality Promise Section -->
     <section class="quality-promise">
@@ -1059,6 +1240,65 @@
         </div>
       </div>
     </section>
+    <!-- Contact Section -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="section-title">Get in Touch</h2>
+    <p class="contact-intro">
+      Have questions, need bulk orders, or want to partner with us?  
+      We’d love to hear from you. Fill out the form below or reach out directly.
+    </p>
+
+    <div class="contact-grid">
+      <!-- Contact Form -->
+   <form class="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSeBwljQQdx-wMK38omi_7rneqWUvxhXukJQ5iKmV6Szv8Iz8Q/formResponse" method="POST" target="_blank">
+  <div class="form-group">
+    <input type="text" name="entry.1922090859" placeholder="Your Name" required />
+  </div>
+  <div class="form-group">
+    <input type="email" name="entry.1498751499" placeholder="Your Email" required />
+  </div>
+  <div class="form-group">
+    <input type="text" name="entry.1453147555" placeholder="Your Contact Number" />
+  </div>
+  <div class="form-group">
+    <textarea name="entry.1579996035" placeholder="Your Message" rows="6" required></textarea>
+  </div>
+  <button type="submit" class="cta-button">Send Message</button>
+</form>
+
+
+      <!-- Contact Info -->
+    <div class="contact-info">
+  <h3>📍 Our Office</h3>
+  <p>HelloWorld Falcon, MR-9<br>
+    Indore - 452011, India
+  </p>
+
+  <h3>📧 Email</h3>
+  <p><a href="mailto:info@emmettnaturals.com">info@emmettnaturals.com</a></p>
+
+  <h3>📞 Phone</h3>
+  <p><a href="https://wa.me/917770848440" target="_blank">+91 7770848440</a></p>
+
+  <h3>🌐 Connect with Us</h3>
+  <p>
+    <a href="https://www.linkedin.com/company/emmett-naturals/" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" 
+           alt="LinkedIn" 
+           style="width:24px; height:24px; vertical-align:middle; margin-right:8px;">
+      LinkedIn
+    </a>
+  </p>
+</div>
+
+    </div>
+  </div>
+</section>
+ 
+
+
+
 
     <!-- Footer -->
     <footer id="contact">
@@ -1148,20 +1388,7 @@
           observer.observe(el);
         });
       // Get modal elements
-      const modal = document.getElementById("productModal");
-      const modalImg = document.getElementById("modalImage");
-      const caption = document.getElementById("caption");
-      const closeBtn = document.querySelector(".close");
-
-      // Open modal on click
-      document.querySelectorAll(".moringa-item").forEach((item) => {
-        item.addEventListener("click", () => {
-          const imgSrc = item.getAttribute("data-img");
-          modal.style.display = "block";
-          modalImg.src = imgSrc;
-          caption.innerText = item.innerText;
-        });
-      });
+    
 
       document.querySelectorAll(".accordion").forEach((item) => {
         item.addEventListener("click", () => {
@@ -1173,10 +1400,114 @@
         });
       });
       // Close modal
-      closeBtn.onclick = () => (modal.style.display = "none");
-      modal.onclick = (e) => {
-        if (e.target === modal) modal.style.display = "none";
-      };
+
+
+      const products = {
+  "Pure Moringa Powder": {
+    image: "assets/moringa-powder.jpg",
+    title: "Moringa Powder",
+    scientific: "Moringa oleifera",
+    description: `Crafted from the meticulously dried leaves of India’s finest organic 
+      Moringa oleifera trees, our Moringa Powder embodies exceptional purity 
+      and nutritional excellence. Sourced exclusively from certified farms, this fine powder 
+      delivers a versatile addition to your wellness regimen.`,
+    benefits: [
+      "Enhances sustained energy levels and combats fatigue.",
+      "Strengthens the immune system with its rich antioxidant profile.",
+      "Promotes radiant skin and hair health through essential vitamins and minerals.",
+      "Supports digestive wellness with natural fiber content.",
+      "Aids in reducing inflammation, fostering overall vitality."
+    ]
+  },
+  "Moringa Oil": {
+    image: "assets/moringa-oil.jpg",
+    title: "Moringa Oil",
+    scientific: "Moringa oleifera (Seed Oil)",
+    description: `Extracted through a cold-press method from the seeds of organic 
+      Moringa oleifera, our Moringa Oil is a luxurious elixir renowned for its purity 
+      and potency. Ideal for skincare and haircare routines.`,
+    benefits: [
+      "Deeply hydrates and nourishes the skin, reducing dryness.",
+      "Strengthens hair follicles, promoting lustrous and healthy hair.",
+      "Provides anti-inflammatory properties to soothe irritated skin.",
+      "Rich in antioxidants, protecting against environmental damage.",
+      "Supports wound healing with natural antimicrobial qualities."
+    ]
+  },
+  "Moringa Tablets": {
+    image: "assets/moringa-tablets.jpg",
+    title: "Moringa Tablets / Capsules",
+    scientific: "Moringa oleifera (Leaf Extract)",
+    description: `Formulated for convenience, our Moringa Tablets and Capsules encapsulate 
+      the full nutritional spectrum of organic Moringa oleifera leaves. 
+      Designed with precision for modern busy lifestyles.`,
+    benefits: [
+      "Boosts vitality and stamina for an active daily routine.",
+      "Fortifies the immune system with concentrated nutrients.",
+      "Enhances metabolic health, supporting weight management.",
+      "Promotes mental clarity and reduces stress levels.",
+      "Contributes to cardiovascular health with its nutrient density."
+    ]
+  },
+  "Moringa Seeds": {
+    image: "assets/moringa-seeds.jpg",
+    title: "Moringa Seeds",
+    scientific: "Moringa oleifera (Seeds)",
+    description: `Harvested from the elite organic Moringa oleifera trees of India, 
+      our Drumstick Seeds are a premium source of natural wellness. 
+      Carefully processed to preserve their integrity.`,
+    benefits: [
+      "Strengthens the immune system with a high antioxidant content.",
+      "Supports liver detoxification for optimal organ health.",
+      "Promotes cardiovascular wellness by regulating cholesterol levels.",
+      "Enhances digestive efficiency with natural fiber.",
+      "Provides anti-inflammatory benefits for joint and muscle comfort."
+    ]
+  }
+};
+const modal = document.getElementById("productModal");
+const closeBtn = document.querySelector(".close");
+
+const modalTitle = document.getElementById("modalTitle");
+const modalScientific = document.getElementById("modalScientific");
+const modalDesc = document.getElementById("modalDesc");
+const modalBenefits = document.getElementById("modalBenefits");
+const modalImage = document.getElementById("modalImage");
+
+// Attach click events to product items
+document.querySelectorAll(".moringa-item").forEach(item => {
+  item.addEventListener("click", () => {
+    const productName = item.textContent.trim();
+    const product = products[productName];
+
+    if (product) {
+      modalTitle.textContent = product.title;
+      modalScientific.textContent = product.scientific;
+      modalDesc.textContent = product.description;
+      modalImage.src = product.image;
+
+      // Clear old benefits & add new ones
+      modalBenefits.innerHTML = "";
+      product.benefits.forEach(benefit => {
+        const li = document.createElement("li");
+        li.textContent = benefit;
+        modalBenefits.appendChild(li);
+      });
+
+      modal.style.display = "flex"; // Show modal (centered)
+    }
+  });
+});
+
+// Close modal
+closeBtn.onclick = () => (modal.style.display = "none");
+
+// Close if clicked outside
+window.onclick = e => {
+  if (e.target === modal) modal.style.display = "none";
+};
+
+
     </script>
   </body>
 </html>
